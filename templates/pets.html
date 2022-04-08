@@ -26,14 +26,19 @@
       </p>
     <![endif]-->
     <div class="container">
-      <h1 class="display-1 text-center">Our Pets</h1>
+      <h1 class="display-1 text-center text-decoration-underline">Our Pets</h1>
       <div class="text-center">
-        <a href="/add" class="btn btn-success btn-sm mb-2">Add a new pet</a>
+        <a href="/add" class="btn btn-success btn-sm mb-2 mt-2"
+          >Add a new pet</a
+        >
       </div>
-      <div class="row justify-content-around">
+      <div class="row justify-content-center text-center">
         <div class="col-4">
-          {% for pet in pets %}
+          {% for pet in pets %} {% if pet.photo_url == "" %}
+          <p class="text-danger">No Image At This Time</p>
+          {% else %}
           <img src="{{pet.photo_url }}" alt="" class="img-thumbnail mb-2" />
+          {% endif %}
           <p>
             {{pet.name}}{% if pet.available == true %}
             <span class="text-success">Is Available!</span>
@@ -42,7 +47,7 @@
             {% endif %}
           </p>
           <p>
-            <a href="/pet/{{pet.id}}" class="btn btn-primary btn-sm"
+            <a href="/pet/{{pet.id}}" class="btn btn-primary btn-sm mb-4"
               >View Details</a
             >
             {% endfor %}

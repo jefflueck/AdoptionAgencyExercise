@@ -18,7 +18,7 @@ toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def list_all_pets():
     """Show all pets."""
 
@@ -39,6 +39,7 @@ def add_pet_form():
         new_pet = Pet(name=name, species=species, photo_url=photo_url, age=age, notes=notes, available=available)
         db.session.add(new_pet)
         db.session.commit()
+        flash(f'{name} has been added to the database!')
         return redirect('/')
     else:
         return render_template('new_pet.html', form=form)

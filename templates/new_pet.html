@@ -35,9 +35,11 @@
             <div class="form-group">
               {{form.name.label}} {{form.name (class_='form-control')}}
               {{form.species.label}} {{form.species (class_='form-control')}}
-              {{form.photo_url.label}} {{form.photo_url(class_='form-control')}}
+              {{form.photo_url.label}} {{form.photo_url(class_='form-control' ,
+              default='https://cdn2.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.jpg')}}
               {{form.age.label}}{{form.age(class_='form-control')}}
               {{form.notes.label}} {{form.notes(class_='form-control')}}
+              {{form.available.label}} {{form.available}}
             </div>
             <button class="btn btn-success btn-lg mt-2">Submit</button>
             <a href="/" class="btn btn-danger btn-lg mt-2">Go Back</a>
